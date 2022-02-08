@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveys</title>
+</head>
+<style>
+	body {
+		background-color: #32cd32;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		font-family: Arial, sans-serif;
+		font-size: 18px;
+		/* line-height: 1.2; */
+		font-weight: 600;
+	}
+	#p1 {
+		font: 1.4em;
+		font-size: 23px;
+		font-weight: bold;
+	}
+	#p2 {
+		/* font-size: 46px;
+		 */
+		font-size: 2.25em;
+		/* word-wrap: break-word; */
+	}
+	#blue {
+		margin-top: 2px;
+		font-size: 2.2em;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: #003660;
+		color: #FFFFFF;
+		width: 100vw;
+	}
+	#yellow {
+		margin-top: 3px;
+		width: 100vw;
+		font-size: 2.2em;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		color: #003660;
+		background-color: #FEBC11;
+	}
+	#bottom {
+		color: white;
+		font-size: 25px;
+	}
+	.bottom {
+		margin-bottom: 7px;
+	}
+	#photo {
+		max-width: 180px;
+		margin-top: 4px;
+		margin-bottom: 2px;
+	}
+	#btn {
+		position: fixed;
+		top: 0.6%;
+		right: 0.8%;
+		border-radius: 5px;
+	}
+</style>
+<body>
+	<section style="color:white">
+		<div id="p1">UCSB COVID-19 Clearance Status</div>
+		<div id="p2">Cleared to be On-Site</div>
+		<img id="btn" src="./assets/buttonX.jpg" alt="">
+	</section>
+	<section>
+		<div id="blue">STUDENT</div>
+		<div id="yellow"></div>
+		<img id='photo' src="./assets/studentID.jpg" alt="">
+	</section>
+	<section id="bottom">
+		<div class="bottom">STEPHEN TRIEU</div>
+		<div class="bottom"style="font-size: 23px">#938670</div>
+		<div class="bottom"id="nextSurvey" style="font-size: 19px"></div>
+		<div class="bottom">Mask REQUIRED Indoors</div>
+	</section>
+</body>
+	<script>
+		const d = new Date();
+		let month = d.getMonth() + 1
+		let day = d.getDate()
+		let year = d.getFullYear()
+		let militaryHour = d.getHours()
+		let hour = ((d.getHours() + 11) % 12 + 1)
+		let minute = d.getMinutes()
+		let newMinute =  minute < 10 ? `0${minute}` : minute;
+		let suffix = militaryHour >= 12 ? "PM" : "AM";
+		let newDate = `${month}/${day+1}/${year} 1:00 AM`
+		console.log("Hello")
+
+		document.querySelector("#yellow").innerHTML = `${month}/${day}/${year} ${hour}:${newMinute} ${suffix} `;
+
+		document.querySelector('#nextSurvey').innerHTML = `Next Survey Due: ${month}/${day+1}/${year} 1:00 AM`
+	</script>
+</html>
